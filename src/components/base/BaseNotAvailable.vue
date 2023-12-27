@@ -1,0 +1,22 @@
+<script setup>
+import { ref } from 'vue'
+import { useNotAvailableStore } from '@/stores/dialogs.js'
+
+const not_available = useNotAvailableStore()
+</script>
+
+<template>
+  <v-dialog v-model="not_available.show_dialog" width="500">
+    <v-card>
+      <v-alert
+        @click:close="not_available.toggleDialog()"
+        text="Sorry, but this section is not yet available."
+        color="primary-color"
+        type="info"
+        variant="text"
+        border="start"
+        closable>
+      </v-alert>
+    </v-card>
+  </v-dialog>
+</template>
