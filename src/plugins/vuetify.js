@@ -3,7 +3,7 @@ import { createVuetify } from 'vuetify'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import { mdiBagChecked, mdiMagnify, mdiCart, mdiAccount, mdiEye, mdiEyeOff, mdiAlert, mdiFacebook, mdiTwitter, mdiInstagram } from '@mdi/js'
+import { mdiBagChecked, mdiMagnify, mdiCart, mdiAccount, mdiEye, mdiEyeOff, mdiAlert, mdiFacebook, mdiTwitter, mdiInstagram, mdiCheckCircle, mdiGiftOff, mdiInformation } from '@mdi/js'
 
 export default createVuetify({
   components,
@@ -21,7 +21,10 @@ export default createVuetify({
       mdiAlert,
       mdiFacebook,
       mdiTwitter,
-      mdiInstagram
+      mdiInstagram,
+      mdiCheckCircle,
+      mdiGiftOff,
+      mdiInformation
     },
     sets: {
       mdi

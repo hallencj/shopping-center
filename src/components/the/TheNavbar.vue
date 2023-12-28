@@ -1,13 +1,19 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useShoppingCart } from '@/stores/shopping-cart.js'
 
 const search = ref('')
 const router = useRouter()
+const shopping_cart = useShoppingCart()
 
 const goToHome = () => {
   router.push({ path: '/', query: {}})
   search.value = ''
+}
+
+const goToShoppingCart = () => {
+  router.push({ path: '/cart' })
 }
 
 const goToLogin = () => {
@@ -44,9 +50,16 @@ const handleSearch = () => {
           hide-details
         />
       </v-sheet>
-  
-      <v-btn class="ml-6 mr-3" icon="$mdiCart" />
-      <v-btn @click="goToLogin()" icon="$mdiAccount" />
+      
+      <v-btn @click="goToShoppingCart()" class="ml-6 mr-3" stacked>
+        <v-badge :model-value="shopping_cart.carts.length > 0" :content="shopping_cart.carts.length" color="red-lighten-1">
+          <v-icon icon="$mdiCart" />
+        </v-badge>
+      </v-btn>
+
+      <v-btn @click="goToLogin()" stacked>
+        <v-icon icon="$mdiAccount" />
+      </v-btn>
     </v-container>
   </v-app-bar>
 </template>

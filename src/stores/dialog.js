@@ -8,5 +8,8 @@ export const useNotAvailableStore = defineStore('not_available', () => {
     show.value = !show.value
   }
 
-  return { show, toggleDialog }
+  return { 
+    show, 
+    toggleDialog 
+  }
 })

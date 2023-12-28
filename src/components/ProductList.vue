@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ProductListCard from './ProductListCard.vue'
+import ProductNotFound from './ProductNotFound.vue'
 
 const product_list = ref([])
 const loading = ref(true)
@@ -52,6 +53,10 @@ displayProductList()
         <v-progress-circular color="primary-color" size="60" indeterminate rounded></v-progress-circular>
         <h6 class="text-grey-darken-2 text-body-1 mt-6">Loading Products...</h6>
       </v-card>
+    </v-col>
+
+    <v-col v-else-if="!loading && product_list.length === 0" cols="12">
+      <ProductNotFound />
     </v-col>
 
     <v-col v-for="product in product_list" :key="product.id" cols="12" lg="3">

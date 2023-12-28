@@ -1,5 +1,5 @@
 <script setup>
-import { useNotAvailableStore } from '@/stores/dialogs.js'
+import { useNotAvailableStore } from '@/stores/dialog.js'
 
 const not_available = useNotAvailableStore()
 </script>

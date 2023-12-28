@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useShoppingCart } from '@/stores/shopping-cart.js'
 
-defineProps({
+const props = defineProps({
   product: {
     type: Object,
     default() {
@@ -27,9 +28,16 @@ defineProps({
 })
 
 const show = ref(false)
+const display_snackbar = ref(false)
+const shopping_cart = useShoppingCart()
 
 const toggleDialog = () => {
   show.value = !show.value
+}
+
+const addToCart = () => {
+  shopping_cart.addToCart(props.product)
+  display_snackbar.value = true
 }
 
 defineExpose({
@@ -68,8 +76,22 @@ defineExpose({
       <v-divider class="mt-12 mb-2" />
 
       <v-card-actions>
-        <v-btn @click="toggleDialog()" class="mx-auto" size="large" text>CLOSE</v-btn>
+        <v-spacer></v-spacer>
+        <v-btn @click="addToCart()" class="px-4 mx-2" color="primary-color" size="large" variant="flat">Add to Cart</v-btn>
+        <v-btn @click="toggleDialog()" class="px-4 mx-2" size="large" text>Close</v-btn>
+        <v-spacer></v-spacer>
       </v-card-actions>
     </v-card>
   </v-dialog>
+
+  <v-snackbar v-model="display_snackbar" color="primary-color">
+    <div class="align-center d-flex">
+      <v-icon class="mr-2" icon="$mdiCheckCircle" size="large"></v-icon>
+      <span class="text-body-1">Item has been added to your shopping cart.</span>
+    </div>
+
+    <template v-slot:actions>
+      <v-btn @click="display_snackbar = false" variant="text">Close</v-btn>
+    </template>
+  </v-snackbar>
 </template>
