@@ -1,12 +1,11 @@
 <script setup>
-import { ref } from 'vue'
 import { useNotAvailableStore } from '@/stores/dialogs.js'
 
 const not_available = useNotAvailableStore()
 </script>
 
 <template>
-  <v-dialog v-model="not_available.show_dialog" width="500">
+  <v-dialog v-model="not_available.show" width="500">
     <v-card>
       <v-alert
         @click:close="not_available.toggleDialog()"
@@ -15,8 +14,8 @@ const not_available = useNotAvailableStore()
         type="info"
         variant="text"
         border="start"
-        closable>
-      </v-alert>
+        closable
+      />
     </v-card>
   </v-dialog>
 </template>

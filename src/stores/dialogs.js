@@ -2,11 +2,11 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useNotAvailableStore = defineStore('not_available', () => {
-  const show_dialog = ref(false)
+  const show = ref(false)
 
   const toggleDialog = () => {
-    show_dialog.value = !show_dialog.value
+    show.value = !show.value
   }
 
-  return { show_dialog, toggleDialog }
+  return { show, toggleDialog }
 })

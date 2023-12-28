@@ -19,11 +19,23 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-// Import global styles
-
 import { mount } from 'cypress/vue'
+import vuetify from '@/plugins/vuetify.js'
 
-Cypress.Commands.add('mount', mount)
-
-// Example use:
-// cy.mount(MyComponent)
+Cypress.Commands.add('mount', (component, options = {}) => {
+  // Setup options object
+  options.global = options.global || {}
+  options.global.stubs = options.global.stubs || {}
+  options.global.stubs['transition'] = false
+  options.global.components = options.global.components || {}
+  options.global.plugins = options.global.plugins || []
+  
+  // Add any global plugins
+  options.global.plugins.push({
+    install(app) {
+      app.use(vuetify) // Import vuetify from you vuetify config
+    }
+  })
+  
+  return mount(component, options)
+})
