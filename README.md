@@ -16,6 +16,7 @@ Shopping Center is an e-commerce website. This is purely front end and I used th
 4. npm install node@v20.9.0 --save-dev (Optional if the 3rd step did not work)
 5. npm run dev
 
-# Notes
+# Important Notes
 
-- To Login, use "user" in username/email field and "password" for password field.
+- User credentials are static
+- To login, use "user" in username/email field and "password" for password field.
