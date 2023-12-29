@@ -13,7 +13,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/cart',
+      path: '/shopping-cart',
       name: 'shopping-cart',
       component: ShoppingCartView
     },
@@ -28,7 +28,7 @@ const router = createRouter({
         if (credentials.logged_in && shopping_cart.length > 0) {
           next()
         } else {
-          next('/cart')
+          next('/shopping-cart')
         }
       }
     },
@@ -43,7 +43,7 @@ const router = createRouter({
         if (credentials.logged_in && shopping_cart.length > 0) {
           next()
         } else {
-          next('/cart')
+          next('/shopping-cart')
         }
       }
     },
@@ -60,6 +60,10 @@ const router = createRouter({
           next()
         }
       }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: HomeView
     }
   ]
 })

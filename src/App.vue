@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import TheNavbar from './components/the/TheNavbar.vue'
 import TheFooter from './components/the/TheFooter.vue'
-import BaseNotAvailable from './components/base/BaseNotAvailable.vue'
+import DialogNotAvailable from './components/dialog/DialogNotAvailable.vue'
 </script>
 
 <template>
@@ -16,7 +16,7 @@ import BaseNotAvailable from './components/base/BaseNotAvailable.vue'
     </v-main>
     
     <TheFooter />
-    <BaseNotAvailable />
+    <DialogNotAvailable />
   </v-layout>
 </template>
 

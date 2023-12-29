@@ -1,8 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useNotAvailableStore } from '@/stores/index.js'
-import { useUserStore } from '@/stores/index.js'
+import { useNotAvailableStore, useUserStore } from '@/stores/index.js'
 
 const form = ref(null)
 const rules = [(v) => !!v || 'Field is required.']
@@ -37,9 +36,9 @@ const submitForm = async () => {
 <template>
   <v-card class="pa-6 mx-auto mt-16" elevation="3" width="450">
     <v-form :readonly="loading" @keyup.enter="submitForm()" ref="form">
-      <v-icon class="d-block mx-auto" color="primary-color" icon="$mdiBagChecked" size="50" />
+      <v-icon class="d-block mx-auto" color="primary" icon="$mdiBagChecked" size="50" />
 
-      <v-card-title class="text-primary-color text-center text-h5 mb-5 mt-1">LOGIN</v-card-title>
+      <v-card-title class="text-primary text-center text-h5 mb-5 mt-1">LOGIN</v-card-title>
 
       <v-divider class="mb-6" />
 
@@ -76,7 +75,7 @@ const submitForm = async () => {
         </template>
       </v-text-field>
 
-      <v-btn :loading="loading" @click="submitForm()" color="secondary-color" block>Log In</v-btn>
+      <v-btn :loading="loading" @click="submitForm()" color="secondary" block>Log In</v-btn>
     </v-form>
 
     <v-row class="text-center mt-3">

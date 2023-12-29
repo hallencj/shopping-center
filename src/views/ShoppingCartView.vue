@@ -1,9 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from '@/stores/index.js'
-import { useShoppingCart } from '@/stores/index.js'
-import ProductNotFound from '@/components/ProductNotFound.vue'
+import { useUserStore, useShoppingCart } from '@/stores/index.js'
+import ProductNotFound from '@/components/product/ProductNotFound.vue'
 
 const select_all = ref(false)
 const router = useRouter()
@@ -41,7 +40,7 @@ const checkOut = () => {
     <v-card-item>
       <v-row align="center">
         <v-col cols="12" sm="4" md="4" lg="5">
-          <v-checkbox v-model="select_all" @change="handleSelectAll()" label="Select All" hide-details />
+          <v-checkbox v-model="select_all" @change="handleSelectAll()" color="primary" label="Select All" hide-details />
         </v-col>
 
         <v-col cols="12" sm="2" md="2" lg="2">
@@ -69,7 +68,7 @@ const checkOut = () => {
 
       <v-row class="pa-5" align="center">
         <v-col cols="12" sm="" md="1" lg="1">
-          <v-checkbox v-model="cart.selected" hide-details />
+          <v-checkbox v-model="cart.selected" color="primary" hide-details />
         </v-col>
   
         <v-col cols="12" sm="" md="1" lg="1">
@@ -93,15 +92,15 @@ const checkOut = () => {
         </v-col>
   
         <v-col cols="12" sm="2" md="2" lg="1">
-          <v-btn @click="shopping_cart.removeToCart(cart.id)" color="red-lighten-1" size="small">Delete</v-btn>
+          <v-btn @click="shopping_cart.removeToCart(cart.id)" color="error" size="small">Delete</v-btn>
         </v-col>
       </v-row>
     </v-card-item>
   </v-card>
   
   <div class="justify-end align-center d-flex mt-6">
-    <span class="text-body-1 mr-6">Total Item: <span class="text-primary-color font-weight-bold">{{ total_item_selected.length }}</span></span>
-    <span class="text-body-1 mr-6">Total Amount: <span class="text-primary-color font-weight-bold">${{ total_amount }}</span> </span>
-    <v-btn :disabled="total_item_selected.length === 0" @click="checkOut()" color="primary-color">Check Out</v-btn>
+    <span class="text-body-1 mr-6">Total Item: <span class="text-primary font-weight-bold">{{ total_item_selected.length }}</span></span>
+    <span class="text-body-1 mr-6">Total Amount: <span class="text-primary font-weight-bold">${{ total_amount }}</span> </span>
+    <v-btn :disabled="total_item_selected.length === 0" @click="checkOut()" color="primary">Check Out</v-btn>
   </div>
 </template>

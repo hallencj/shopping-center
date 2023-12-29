@@ -1,15 +1,13 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useShoppingCart } from '@/stores/index.js'
-import { useUserStore } from '@/stores/index.js'
-import { useNotAvailableStore } from '@/stores/index.js'
+import { useNotAvailableStore, useUserStore, useShoppingCart } from '@/stores/index.js'
 
 const search = ref('')
 const router = useRouter()
-const shopping_cart = useShoppingCart()
-const user = useUserStore()
 const not_available = useNotAvailableStore()
+const user = useUserStore()
+const shopping_cart = useShoppingCart()
 
 const goToHome = () => {
   router.push({ path: '/', query: {}})
@@ -17,7 +15,8 @@ const goToHome = () => {
 }
 
 const goToShoppingCart = () => {
-  router.push({ path: '/cart' })
+  router.push({ path: '/shopping-cart' })
+  search.value = ''
 }
 
 const goToLogin = () => {
@@ -37,7 +36,7 @@ const handleSearch = () => {
 </script>
 
 <template>
-  <v-app-bar color="primary-color" height="80">
+  <v-app-bar color="primary" height="80">
     <v-container class="justify-center align-center mx-auto d-flex">
       <v-app-bar-title>
         <span @click="goToHome()" class="cursor-pointer"><v-icon icon="$mdiBagChecked" size="40" start /> Shopping Center</span>
@@ -57,7 +56,7 @@ const handleSearch = () => {
       </v-sheet>
       
       <v-btn @click="goToShoppingCart()" class="ml-6 mr-3" stacked>
-        <v-badge :model-value="shopping_cart.carts.length > 0" :content="shopping_cart.carts.length" color="red-lighten-1">
+        <v-badge :model-value="shopping_cart.carts.length > 0" :content="shopping_cart.carts.length" color="error">
           <v-icon icon="$mdiCart" />
         </v-badge>
       </v-btn>
@@ -65,7 +64,7 @@ const handleSearch = () => {
       <v-btn @click="goToLogin()" stacked>
         <div>
           <v-icon icon="$mdiAccount" />
-          <v-icon v-if="user.credentials.logged_in" icon="$mdiChevronDown" size="x-small"></v-icon>
+          <v-icon v-if="user.credentials.logged_in" icon="$mdiChevronDown" size="x-small" />
         </div>
 
         <v-menu v-if="user.credentials.logged_in" activator="parent" location="bottom right">
@@ -78,7 +77,7 @@ const handleSearch = () => {
             
             <v-list-item @click="not_available.toggleDialog()">
               <template v-slot:prepend>
-                <v-icon icon="$mdiBank"></v-icon>
+                <v-icon icon="$mdiBank" />
               </template>
 
               <v-list-item-title>Accounts</v-list-item-title>
@@ -88,7 +87,7 @@ const handleSearch = () => {
 
             <v-list-item @click="not_available.toggleDialog()">
               <template v-slot:prepend>
-                <v-icon icon="$mdiCog"></v-icon>
+                <v-icon icon="$mdiCog" />
               </template>
 
               <v-list-item-title>Settings</v-list-item-title>
@@ -98,7 +97,7 @@ const handleSearch = () => {
 
             <v-list-item @click="user.toggleLoggedIn()">
               <template v-slot:prepend>
-                <v-icon icon="$mdiLogout"></v-icon>
+                <v-icon icon="$mdiLogout" />
               </template>
 
               <v-list-item-title>Log out</v-list-item-title>

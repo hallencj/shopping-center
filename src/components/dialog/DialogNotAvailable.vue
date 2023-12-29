@@ -10,7 +10,7 @@ const not_available = useNotAvailableStore()
       <v-alert
         @click:close="not_available.toggleDialog()"
         text="Sorry, but this section is not yet available."
-        color="primary-color"
+        color="primary"
         type="info"
         variant="text"
         border="start"

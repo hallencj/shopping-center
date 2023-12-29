@@ -19,7 +19,7 @@ Shopping Center is an e-commerce website. This is purely front end and I used th
 # Unit Test with Cypress
 
 1. Run "npx cypress open" in your terminal
-2. Click "Start Component Testing in <your preferred browser>"
+2. Click "Start Component Testing in *(your preferred browser)*"
 3. Choose a specs to run
 
 # Important Notes

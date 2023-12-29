@@ -1,16 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/index.js'
-import { useNotAvailableStore } from '@/stores/index.js'
-import CheckOutDialog from '@/components/CheckOutDialog.vue'
+import { useNotAvailableStore, useUserStore } from '@/stores/index.js'
+import DialogCheckOut from '@/components/dialog/DialogCheckOut.vue'
 
-const check_out_dialog = ref(null)
-const user = useUserStore()
+const dialog_check_out = ref(null)
 const not_available = useNotAvailableStore()
+const user = useUserStore()
 </script>
 
 <template>
-  <h1 class="text-h5">Delivery Information</h1>
+  <h1 class="text-h5 mt-4">Delivery Information</h1>
   <h5 class="text-body-1 mt-2">Please confirm the following information before checking out.</h5>
 
   <v-divider class="mt-4 mb-10"></v-divider>
@@ -41,12 +40,12 @@ const not_available = useNotAvailableStore()
     </v-col>
   </v-row>
 
-  <v-divider class="mt-6 mb-4"></v-divider>
+  <v-divider class="my-6"></v-divider>
 
   <div class="text-right">
     <v-btn @click="not_available.toggleDialog()" class="mx-2" variant="outlined" color="grey-darken-2">Edit</v-btn>
-    <v-btn @click="check_out_dialog.toggleDialog()" class="mx-2" color="primary-color" variant="flat">Check Out</v-btn>
+    <v-btn @click="dialog_check_out.toggleDialog()" class="mx-2" color="primary" variant="flat">Check Out</v-btn>
   </div>
 
-  <CheckOutDialog ref="check_out_dialog" />
+  <DialogCheckOut ref="dialog_check_out" />
 </template>

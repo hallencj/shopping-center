@@ -61,14 +61,14 @@ defineExpose({
             <h6 class="text-body-2 text-grey-darken-2 mb-1">Ratings</h6>
             
             <v-row class="ma-0" align="center">
-              <v-rating :model-value="product.rating.rate" active-color="primary-color" color="secondary-color" size="25" half-increments readonly />
+              <v-rating :model-value="product.rating.rate" active-color="primary" color="secondary" size="25" half-increments readonly />
               <span class="text-grey-darken-2 text-subtitle-2 ml-2">{{ product.rating.rate }} ({{ product.rating.count }})</span>
             </v-row>
           </v-sheet>
 
           <v-sheet class="mt-6 px-4 py-2" color="grey-lighten-4">
             <h6 class="text-grey-darken-2 text-body-2">Price</h6>
-            <h6 class="font-weight-bold text-primary-color text-h5">${{ product.price }}</h6>
+            <h6 class="font-weight-bold text-primary text-h5">${{ product.price }}</h6>
           </v-sheet>
         </v-col>
       </v-row>
@@ -77,16 +77,16 @@ defineExpose({
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="addToCart()" class="px-4 mx-2" color="primary-color" size="large" variant="flat">Add to Cart</v-btn>
+        <v-btn @click="addToCart()" class="px-4 mx-2" color="primary" size="large" variant="flat">Add to Cart</v-btn>
         <v-btn @click="toggleDialog()" class="px-4 mx-2" size="large" text>Close</v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
     </v-card>
   </v-dialog>
 
-  <v-snackbar v-model="display_snackbar" color="primary-color">
+  <v-snackbar v-model="display_snackbar" color="primary">
     <div class="align-center d-flex">
-      <v-icon class="mr-2" icon="$mdiCheckCircle" size="large"></v-icon>
+      <v-icon class="mr-2" icon="$mdiCheckCircle" size="large" />
       <span class="text-body-1">Item has been added to your shopping cart.</span>
     </div>
 

@@ -10,7 +10,6 @@ import {
   mdiAccount, 
   mdiEye, 
   mdiEyeOff, 
-  mdiAlert, 
   mdiFacebook, 
   mdiTwitter, 
   mdiInstagram, 
@@ -36,7 +35,6 @@ export default createVuetify({
       mdiAccount,
       mdiEye,
       mdiEyeOff,
-      mdiAlert,
       mdiFacebook,
       mdiTwitter,
       mdiInstagram,
@@ -56,8 +54,9 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          'primary-color': '#4F6F52',
-          'secondary-color': '#739072'
+          'primary': '#4F6F52',
+          'secondary': '#739072',
+          'error': '#EF5350'
         }
       }
     }
