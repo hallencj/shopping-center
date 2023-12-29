@@ -47,7 +47,7 @@ displayProductList()
     </v-col>
   </v-row>  
 
-  <v-row justify="space-around" align="center">
+  <v-row justify="start" align="center">
     <v-col v-if="loading" cols="12">
       <v-card class="text-center pa-10 mt-3" width="100%" variant="flat" border>
         <v-progress-circular color="primary-color" size="60" indeterminate rounded></v-progress-circular>

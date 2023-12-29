@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useNotAvailableStore } from '@/stores/dialog.js'
+import { useUserStore } from '@/stores/user.js'
 
 const form = ref(null)
 const rules = [(v) => !!v || 'Field is required.']
@@ -12,6 +13,7 @@ const loading = ref(false)
 const invalid_login = ref(false)
 const router = useRouter()
 const not_available = useNotAvailableStore()
+const user = useUserStore()
 
 const submitForm = async () => {
   const { valid } = await form.value.validate()
@@ -21,6 +23,7 @@ const submitForm = async () => {
 
   setTimeout(() => { // For API simulation
     if (username_email.value === 'user' && password.value === 'password') {
+      user.toggleLoggedIn()
       router.push('/')
       return
     }

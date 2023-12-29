@@ -1,11 +1,13 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user.js'
 import { useShoppingCart } from '@/stores/shopping-cart.js'
 import ProductNotFound from '@/components/ProductNotFound.vue'
-import CheckOutDialog from '@/components/CheckOutDialog.vue'
 
 const select_all = ref(false)
-const check_out_dialog = ref(null)
+const router = useRouter()
+const user = useUserStore()
 const shopping_cart = useShoppingCart()
 
 const total_item_selected = computed(() => {
@@ -24,8 +26,13 @@ const handleSelectAll = () => {
 }
 
 const checkOut = () => {
+  if (!user.credentials.logged_in) {
+    router.push('/login')
+    return
+  }
+  
   if (total_item_selected.value.length === 0) return
-  check_out_dialog.value.toggleDialog()
+  router.push('/check-out')
 }
 </script>
 
@@ -97,6 +104,4 @@ const checkOut = () => {
     <span class="text-body-1 mr-6">Total Amount: <span class="text-primary-color font-weight-bold">${{ total_amount }}</span> </span>
     <v-btn :disabled="total_item_selected.length === 0" @click="checkOut()" color="primary-color">Check Out</v-btn>
   </div>
-
-  <CheckOutDialog ref="check_out_dialog" />
 </template>

@@ -1,12 +1,18 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user.js'
 
 const show_dialog = ref(false)
 const router = useRouter()
+const user = useUserStore()
 
 const toggleDialog = () => {
   show_dialog.value = !show_dialog.value
+}
+
+const checkOut = () => {
+  router.push('/check-out/success')
 }
 
 defineExpose({
@@ -24,7 +30,7 @@ defineExpose({
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="router.push('/checked-out')" class="px-4 mx-2" color="primary-color" variant="flat">Check Out</v-btn>
+        <v-btn @click="checkOut()" class="px-4 mx-2" color="primary-color" variant="flat">Continue</v-btn>
         <v-btn @click="show_dialog = false" class="px-4 mx-2" text>Cancel</v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
