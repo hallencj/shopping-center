@@ -59,7 +59,7 @@ displayProductList()
       <ProductNotFound />
     </v-col>
 
-    <v-col v-for="product in product_list" :key="product.id" cols="12" lg="3">
+    <v-col v-for="product in product_list" :key="product.id" cols="12" sm="4" md="3" lg="3">
       <ProductListCard :product="product" />
     </v-col>
   </v-row>

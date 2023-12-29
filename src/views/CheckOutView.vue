@@ -16,27 +16,27 @@ const not_available = useNotAvailableStore()
   <v-divider class="mt-4 mb-10"></v-divider>
 
   <v-row align="center">
-    <v-col cols="12" lg="4">
+    <v-col cols="12" sm="6" md="4" lg="4">
       <v-text-field v-model="user.credentials.first_name" label="First Name" readonly></v-text-field>
     </v-col>
 
-    <v-col cols="12" lg="4">
+    <v-col cols="12" sm="6" md="4" lg="4">
       <v-text-field v-model="user.credentials.last_name" label="Last Name" readonly></v-text-field>
     </v-col>
 
-    <v-col cols="12" lg="4">
+    <v-col cols="12" sm="6" md="4" lg="4">
       <v-text-field v-model="user.credentials.username_email" label="Username / Email" readonly></v-text-field>
     </v-col>
 
-    <v-col cols="12" lg="4">
+    <v-col cols="12" sm="6" md="4" lg="4">
       <v-text-field v-model="user.credentials.address" label="Address" readonly></v-text-field>
     </v-col>
 
-    <v-col cols="12" lg="4">
+    <v-col cols="12" sm="6" md="4" lg="4">
       <v-text-field v-model="user.credentials.contact_number" label="Contact Number" readonly></v-text-field>
     </v-col>
 
-    <v-col cols="12" lg="4">
+    <v-col cols="12" sm="6" md="4" lg="4">
       <v-text-field v-model="user.credentials.preferred_mode_of_payment" label="Mode of Payment" readonly></v-text-field>
     </v-col>
   </v-row>

@@ -40,23 +40,23 @@ const checkOut = () => {
   <v-card elevation="0" border>
     <v-card-item>
       <v-row align="center">
-        <v-col cols="12" lg="5">
+        <v-col cols="12" sm="4" md="4" lg="5">
           <v-checkbox v-model="select_all" @change="handleSelectAll()" label="Select All" hide-details />
         </v-col>
 
-        <v-col cols="12" lg="2">
+        <v-col cols="12" sm="2" md="2" lg="2">
           <span>Price</span>
         </v-col>
 
-        <v-col cols="12" lg="2">
+        <v-col cols="12" sm="2" md="2" lg="2">
           <span>Quantity</span>
         </v-col>
 
-        <v-col cols="12" lg="2">
+        <v-col cols="12" sm="2" md="2" lg="2">
           <span>Total Price</span>
         </v-col>
 
-        <v-col cols="12" lg="1"></v-col>
+        <v-col cols="12" sm="2" md="2" lg="1"></v-col>
       </v-row>
     </v-card-item>
 
@@ -68,31 +68,31 @@ const checkOut = () => {
       <v-divider></v-divider>
 
       <v-row class="pa-5" align="center">
-        <v-col cols="12" lg="1">
+        <v-col cols="12" sm="" md="1" lg="1">
           <v-checkbox v-model="cart.selected" hide-details />
         </v-col>
   
-        <v-col cols="12" lg="1">
+        <v-col cols="12" sm="" md="1" lg="1">
           <v-img :src="cart.image" height="50" width="50" />
         </v-col>
         
-        <v-col cols="12" lg="3">
+        <v-col cols="12" sm="2" md="2" lg="3">
           <span>{{ cart.title }}</span>
         </v-col>
   
-        <v-col cols="12" lg="2">
+        <v-col cols="12" sm="2" md="2" lg="2">
           <span>${{ cart.price }}</span>
         </v-col>
   
-        <v-col cols="12" lg="2">
+        <v-col cols="12" sm="2" md="2" lg="2">
           <span>{{ cart.quantity }}</span>
         </v-col>
   
-        <v-col cols="12" lg="2">
+        <v-col cols="12" sm="2" md="2" lg="2">
           <span>${{ cart.price * cart.quantity }}</span>
         </v-col>
   
-        <v-col cols="12" lg="1">
+        <v-col cols="12" sm="2" md="2" lg="1">
           <v-btn @click="shopping_cart.removeToCart(cart.id)" color="red-lighten-1" size="small">Delete</v-btn>
         </v-col>
       </v-row>

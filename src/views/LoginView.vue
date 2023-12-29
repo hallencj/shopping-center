@@ -80,11 +80,11 @@ const submitForm = async () => {
     </v-form>
 
     <v-row class="text-center mt-3">
-      <v-col cols="12" lg="6">
+      <v-col cols="12" sm="6" md="6" lg="6">
         <v-btn :disabled="loading" @click="not_available.toggleDialog()" class="text-body-2" variant="text" block>Sign Up</v-btn>
       </v-col>
 
-      <v-col cols="12" lg="6">
+      <v-col cols="12" sm="6" md="6" lg="6">
         <v-btn :disabled="loading" @click="not_available.toggleDialog()" class="text-body-2" variant="text" block>Forgot Password</v-btn>
       </v-col>
     </v-row>
