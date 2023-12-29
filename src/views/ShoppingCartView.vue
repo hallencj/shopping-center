@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from '@/stores/user.js'
-import { useShoppingCart } from '@/stores/shopping-cart.js'
+import { useUserStore } from '@/stores/index.js'
+import { useShoppingCart } from '@/stores/index.js'
 import ProductNotFound from '@/components/ProductNotFound.vue'
 
 const select_all = ref(false)

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/user.js'
-import { useNotAvailableStore } from '@/stores/dialog.js'
+import { useUserStore } from '@/stores/index.js'
+import { useNotAvailableStore } from '@/stores/index.js'
 import CheckOutDialog from '@/components/CheckOutDialog.vue'
 
 const check_out_dialog = ref(null)

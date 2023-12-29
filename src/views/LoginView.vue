@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useNotAvailableStore } from '@/stores/dialog.js'
-import { useUserStore } from '@/stores/user.js'
+import { useNotAvailableStore } from '@/stores/index.js'
+import { useUserStore } from '@/stores/index.js'
 
 const form = ref(null)
 const rules = [(v) => !!v || 'Field is required.']

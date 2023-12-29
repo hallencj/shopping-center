@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useShoppingCart } from '@/stores/shopping-cart.js'
-import { useUserStore } from '@/stores/user.js'
-import { useNotAvailableStore } from '@/stores/dialog.js'
+import { useShoppingCart } from '@/stores/index.js'
+import { useUserStore } from '@/stores/index.js'
+import { useNotAvailableStore } from '@/stores/index.js'
 
 const search = ref('')
 const router = useRouter()

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { useShoppingCart } from '@/stores/shopping-cart.js'
+import { useShoppingCart } from '@/stores/index.js'
 
 const props = defineProps({
   product: {
