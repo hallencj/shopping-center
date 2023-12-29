@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useNotAvailableStore, useUserStore } from '@/stores/index.js'
+import { useAlertMessageStore, useUserStore } from '@/stores/index.js'
 
 const form = ref(null)
 const rules = [(v) => !!v || 'Field is required.']
@@ -11,7 +11,7 @@ const show_password = ref(false)
 const loading = ref(false)
 const invalid_login = ref(false)
 const router = useRouter()
-const not_available = useNotAvailableStore()
+const alert_message = useAlertMessageStore()
 const user = useUserStore()
 
 const submitForm = async () => {
@@ -80,11 +80,11 @@ const submitForm = async () => {
 
     <v-row class="text-center mt-3">
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-btn :disabled="loading" @click="not_available.toggleDialog()" class="text-body-2" variant="text" block>Sign Up</v-btn>
+        <v-btn :disabled="loading" @click="alert_message.showNotAvailable()" class="text-body-2" variant="text" block>Sign Up</v-btn>
       </v-col>
 
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-btn :disabled="loading" @click="not_available.toggleDialog()" class="text-body-2" variant="text" block>Forgot Password</v-btn>
+        <v-btn :disabled="loading" @click="alert_message.showNotAvailable()" class="text-body-2" variant="text" block>Forgot Password</v-btn>
       </v-col>
     </v-row>
   </v-card>

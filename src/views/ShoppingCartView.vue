@@ -1,11 +1,12 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore, useShoppingCart } from '@/stores/index.js'
+import { useAlertMessageStore, useUserStore, useShoppingCart } from '@/stores/index.js'
 import ProductNotFound from '@/components/product/ProductNotFound.vue'
 
 const select_all = ref(false)
 const router = useRouter()
+const alert_message = useAlertMessageStore()
 const user = useUserStore()
 const shopping_cart = useShoppingCart()
 
@@ -21,6 +22,20 @@ const total_amount = computed(() => {
 const handleSelectAll = () => {
   shopping_cart.carts.forEach(element => {
     element.selected = select_all.value
+  })
+}
+
+const deleteProductInCart = (id) => {
+  alert_message.showAlert({
+    width: '400px',
+    status: 'warning',
+    title: 'This product will be removed',
+    body: 'Do you want to continue?'
+  })
+  .then(response => {
+    if (response) {
+      shopping_cart.removeToCart(id)
+    }
   })
 }
 
@@ -92,7 +107,7 @@ const checkOut = () => {
         </v-col>
   
         <v-col cols="12" sm="2" md="2" lg="1">
-          <v-btn @click="shopping_cart.removeToCart(cart.id)" color="error" size="small">Delete</v-btn>
+          <v-btn @click="deleteProductInCart(cart.id)" color="error" size="small">Delete</v-btn>
         </v-col>
       </v-row>
     </v-card-item>

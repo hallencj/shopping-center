@@ -1,16 +1,47 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useNotAvailableStore = defineStore('not_available', () => {
-  const show = ref(false)
+export const useAlertMessageStore = defineStore('alert_message', () => {
+  let resolvePromise = () => void 0
 
-  const toggleDialog = () => {
-    show.value = !show.value
+  const alert = ref({
+    show: false,
+    width: '',
+    status: '',
+    title: '',
+    body: ''
+  })
+
+  const showAlert = (details) => {
+    alert.value = { 
+      show: true,
+      ...details 
+    }
+
+    return new Promise((resolve) => resolvePromise = resolve)
+  }
+
+  const showNotAvailable = () => {
+    alert.value = {
+      show: true,
+      width: '480px',
+      status: 'error',
+      title: 'Sorry, but this section is not yet available.'
+    }
+
+    return new Promise((resolve) => resolvePromise = resolve)
+  }
+
+  const handleAction = (status) => {
+    resolvePromise(status)
+    alert.value.show = false
   }
 
   return { 
-    show, 
-    toggleDialog 
+    alert, 
+    showAlert,
+    showNotAvailable,
+    handleAction
   }
 })
 

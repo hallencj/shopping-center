@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useNotAvailableStore, useUserStore, useShoppingCart } from '@/stores/index.js'
+import { useAlertMessageStore, useUserStore, useShoppingCart } from '@/stores/index.js'
 
 const search = ref('')
 const router = useRouter()
-const not_available = useNotAvailableStore()
+const alert_message = useAlertMessageStore()
 const user = useUserStore()
 const shopping_cart = useShoppingCart()
 
@@ -32,6 +32,20 @@ const handleSearch = () => {
   }
 
   router.push({ path: '/', query: {} })
+}
+
+const logout = () => {
+  alert_message.showAlert({
+    width: '400px',
+    status: 'warning',
+    title: 'This will logout your account',
+    body: 'Do you want to continue?'
+  })
+  .then(response => {
+    if (response){
+      user.toggleLoggedIn()
+    }
+  })
 }
 </script>
 
@@ -75,7 +89,7 @@ const handleSearch = () => {
 
             <v-divider></v-divider>
             
-            <v-list-item @click="not_available.toggleDialog()">
+            <v-list-item @click="alert_message.showNotAvailable()">
               <template v-slot:prepend>
                 <v-icon icon="$mdiBank" />
               </template>
@@ -85,7 +99,7 @@ const handleSearch = () => {
             
             <v-divider></v-divider>
 
-            <v-list-item @click="not_available.toggleDialog()">
+            <v-list-item @click="alert_message.showNotAvailable()">
               <template v-slot:prepend>
                 <v-icon icon="$mdiCog" />
               </template>
@@ -95,7 +109,7 @@ const handleSearch = () => {
             
             <v-divider></v-divider>
 
-            <v-list-item @click="user.toggleLoggedIn()">
+            <v-list-item @click="logout()">
               <template v-slot:prepend>
                 <v-icon icon="$mdiLogout" />
               </template>

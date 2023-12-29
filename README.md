@@ -6,7 +6,7 @@ Shopping Center is an e-commerce website. This is purely front end and I used th
 2. Product List
 3. Product Details
 4. Shopping Cart
-5. Cart check outs
+5. Cart Check Out
 
 # Installation
 
@@ -24,5 +24,5 @@ Shopping Center is an e-commerce website. This is purely front end and I used th
 
 # Important Notes
 
-- User credentials are static
+- User credentials are static.
 - To login, use "user" in username/email field and "password" for password field.

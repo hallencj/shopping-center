@@ -1,11 +1,24 @@
 <script setup>
-import { ref } from 'vue'
-import { useNotAvailableStore, useUserStore } from '@/stores/index.js'
-import DialogCheckOut from '@/components/dialog/DialogCheckOut.vue'
+import { useRouter } from 'vue-router'
+import { useAlertMessageStore, useUserStore } from '@/stores/index.js'
 
-const dialog_check_out = ref(null)
-const not_available = useNotAvailableStore()
+const router = useRouter()
+const alert_message = useAlertMessageStore()
 const user = useUserStore()
+
+const checkOut = () => {
+  alert_message.showAlert({
+    width: '400px',
+    status: 'warning',
+    title: 'This will check out your cart',
+    body: 'Do you want to continue?'
+  })
+  .then(response => {
+    if (response) {
+      router.push('/check-out/success')
+    }
+  })
+}
 </script>
 
 <template>
@@ -43,9 +56,7 @@ const user = useUserStore()
   <v-divider class="my-6"></v-divider>
 
   <div class="text-right">
-    <v-btn @click="not_available.toggleDialog()" class="mx-2" variant="outlined" color="grey-darken-2">Edit</v-btn>
-    <v-btn @click="dialog_check_out.toggleDialog()" class="mx-2" color="primary" variant="flat">Check Out</v-btn>
+    <v-btn @click="alert_message.showNotAvailable()" class="mx-2" variant="outlined" color="grey-darken-2">Edit</v-btn>
+    <v-btn @click="checkOut()" class="mx-2" color="primary" variant="flat">Check Out</v-btn>
   </div>
-
-  <DialogCheckOut ref="dialog_check_out" />
 </template>

@@ -1,5 +1,5 @@
 import { setActivePinia, createPinia } from 'pinia'
-import { useNotAvailableStore, useUserStore, useShoppingCart } from '../index.js'
+import { useAlertMessageStore, useUserStore, useShoppingCart } from '../index.js'
 
 // This creates a fresh pinia and makes it active so it's automatically picked up by any useStore() call without having to pass it to it: `useStore(pinia)`
 const createFreshPinia = () => {
@@ -8,20 +8,38 @@ const createFreshPinia = () => {
   })
 }
 
-describe('Not Available', () => {
+describe('Alert Message', () => {
   createFreshPinia()
 
-  it('initially closed dialog', () => {
-    const not_available = useNotAvailableStore()
-    expect(not_available.show).to.be.false
+  it('initially closed', () => {
+    const alert_message = useAlertMessageStore()
+    expect(alert_message.alert.show).to.be.false
   })
 
-  it('toggleable dialog', () => {
-    const not_available = useNotAvailableStore()
-    expect(not_available.show).to.be.false
+  it('shows alert', () => {
+    const alert_message = useAlertMessageStore()
 
-    not_available.toggleDialog()
-    expect(not_available.show).to.be.true
+    alert_message.showAlert({
+      width: '500px',
+      status: 'warning',
+      title: 'Sample Title',
+      body: 'Sample Body'
+    })
+    expect(alert_message.alert).to.have.keys('show', 'width', 'status', 'title', 'body')
+    expect(alert_message.alert.show).to.be.true
+  })
+
+  it('shows not available', () => {
+    const alert_message = useAlertMessageStore()
+    alert_message.showNotAvailable()
+    expect(alert_message.alert).to.have.keys('show', 'width', 'status', 'title')
+    expect(alert_message.alert.show).to.be.true
+  })
+
+  it('handle action', () => {
+    const alert_message = useAlertMessageStore()
+    alert_message.handleAction()
+    expect(alert_message.alert.show).to.be.false
   })
 })
 
