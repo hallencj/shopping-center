@@ -20,7 +20,11 @@ import {
   mdiChevronDown, 
   mdiBank,
   mdiCog,
-  mdiLogout
+  mdiLogout,
+  mdiSort,
+  mdiShapeOutline,
+  mdiStarOutline,
+  mdiCurrencyUsd
 } from '@mdi/js'
 
 export default createVuetify({
@@ -46,7 +50,11 @@ export default createVuetify({
       mdiChevronDown,
       mdiBank,
       mdiCog,
-      mdiLogout
+      mdiLogout,
+      mdiSort,
+      mdiShapeOutline,
+      mdiStarOutline,
+      mdiCurrencyUsd
     },
     sets: {
       mdi
