@@ -37,8 +37,8 @@ function viewProduct() {
 <template>
   <v-card 
     @click="viewProduct()" 
-    class="text-center pa-5" 
-    height="290" 
+    class="text-center px-4 py-5" 
+    height="260" 
     variant="flat" 
     border
   >
@@ -48,11 +48,11 @@ function viewProduct() {
       :alt="product.title"
       class="mx-auto"
       draggable="false"
-      height="150"
-      width="150"
+      height="120"
+      width="120"
     />
     <v-divider class="mt-6 mb-2" />
-    <v-card-title class="px-0 mb-1">{{ product.title }}</v-card-title>
+    <v-card-title class="text-body-1 px-0">{{ product.title }}</v-card-title>
     <v-card-text class="text-primary font-weight-bold text-subtitle-1">${{ product.price }}</v-card-text>
   </v-card>
 
