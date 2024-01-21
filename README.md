@@ -4,7 +4,7 @@ Shopping Center is an e-commerce website. This is purely front end and I used th
 # Feature
 1. Login
 2. Product List
-3. Product Details
+3. Product Details View
 4. Shopping Cart
 5. Cart Check Out
 
@@ -19,8 +19,9 @@ Shopping Center is an e-commerce website. This is purely front end and I used th
 # Unit Test with Cypress
 
 1. Run "npx cypress open" in your terminal
-2. Click "Start Component Testing in *(your preferred browser)*"
-3. Choose a specs to run
+2. Click "Component Testing"
+3. Click "Start Component Testing in *(your preferred browser)*"
+4. Choose a specs to run
 
 # Important Notes
 
