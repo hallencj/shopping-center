@@ -10,6 +10,7 @@
       icon="$mdiGiftOff" 
       size="x-large" 
     />
+    
     <h6 class="text-grey-darken-2 text-body-1 mt-6">No Product Found</h6>
   </v-card>
 </template>

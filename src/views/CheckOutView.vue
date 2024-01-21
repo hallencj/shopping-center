@@ -1,10 +1,11 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { useAlertMessageStore, useUserStore } from '@/stores/index.js'
+import { useAlertMessage } from '@/stores/alert.js'
+import { useUser } from '@/stores/user.js'
 
 const router = useRouter()
-const alert_message = useAlertMessageStore()
-const user = useUserStore()
+const alert_message = useAlertMessage()
+const user = useUser()
 
 const checkOut = () => {
   alert_message.showAlert({

@@ -1,17 +1,19 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAlertMessageStore, useUserStore, useShoppingCart } from '@/stores/index.js'
+import { useAlertMessage } from '@/stores/alert.js'
+import { useUser } from '@/stores/user.js'
+import { useShoppingCart } from '@/stores/shopping-cart.js'
 import ProductNotFound from '@/components/product/ProductNotFound.vue'
 
 const select_all = ref(false)
 const router = useRouter()
-const alert_message = useAlertMessageStore()
-const user = useUserStore()
+const alert_message = useAlertMessage()
+const user = useUser()
 const shopping_cart = useShoppingCart()
 
 const total_item_selected = computed(() => {
-  return shopping_cart.carts.filter(element => element.selected)
+  return shopping_cart.cart.filter(element => element.selected)
 })
 
 const total_amount = computed(() => {
@@ -20,7 +22,7 @@ const total_amount = computed(() => {
 })
 
 const handleSelectAll = () => {
-  shopping_cart.carts.forEach(element => {
+  shopping_cart.cart.forEach(element => {
     element.selected = select_all.value
   })
 }
@@ -74,11 +76,11 @@ const checkOut = () => {
       </v-row>
     </v-card-item>
 
-    <v-card-item v-if="shopping_cart.carts.length === 0">
+    <v-card-item v-if="shopping_cart.cart.length === 0">
       <ProductNotFound />
     </v-card-item>
 
-    <v-card-item v-for="cart in shopping_cart.carts" :key="cart.id" class="pa-0">
+    <v-card-item v-for="cart in shopping_cart.cart" :key="cart.id" class="pa-0">
       <v-divider></v-divider>
 
       <v-row class="pa-5" align="center">

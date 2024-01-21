@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter, onBeforeRouteLeave } from 'vue-router'
-import { useShoppingCart } from '@/stores/index.js'
+import { useShoppingCart } from '@/stores/shopping-cart.js'
 
 const router = useRouter()
 const shopping_cart = useShoppingCart()
@@ -11,7 +11,7 @@ const goToHome = () => {
 
 onBeforeRouteLeave(() => {
   localStorage.removeItem('shopping-cart')
-  shopping_cart.carts = []
+  shopping_cart.cart = []
 })
 </script>
 

@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import TheNavbar from './components/the/TheNavbar.vue'
 import TheFooter from './components/the/TheFooter.vue'
 import BaseAlert from './components/base/BaseAlert.vue'
+import BaseSnackbar from './components/base/BaseSnackbar.vue'
 </script>
 
 <template>
@@ -16,7 +17,9 @@ import BaseAlert from './components/base/BaseAlert.vue'
     </v-main>
     
     <TheFooter />
+    
     <BaseAlert />
+    <BaseSnackbar />
   </v-layout>
 </template>
 

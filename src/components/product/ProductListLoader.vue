@@ -11,6 +11,7 @@
       indeterminate 
       rounded
     />
+    
     <h6 class="text-grey-darken-2 text-body-1 mt-6">Loading Products...</h6>
   </v-card>
 </template>

@@ -19,6 +19,7 @@
           half-increments 
           readonly 
         />
+        
         <span 
           v-if="n > 1" 
           class="text-grey-darken-2 text-body-2 ml-1"

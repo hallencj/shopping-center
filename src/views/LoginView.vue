@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAlertMessageStore, useUserStore } from '@/stores/index.js'
+import { useAlertMessage } from '@/stores/alert.js'
+import { useUser } from '@/stores/user.js'
 
 const form = ref(null)
 const rules = [(v) => !!v || 'Field is required.']
@@ -11,8 +12,8 @@ const show_password = ref(false)
 const loading = ref(false)
 const invalid_login = ref(false)
 const router = useRouter()
-const alert_message = useAlertMessageStore()
-const user = useUserStore()
+const alert_message = useAlertMessage()
+const user = useUser()
 
 const submitForm = async () => {
   const { valid } = await form.value.validate()
