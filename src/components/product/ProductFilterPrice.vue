@@ -2,11 +2,12 @@
 import { ref } from 'vue'
 import { useNumberOnly } from '@/composables/number.js'
 
+const emit = defineEmits(['applyFilter'])
+
 const min_price = ref(null)
 const max_price = ref(null)
 const show_invalid_amount = ref(false)
 const number_only = useNumberOnly()
-const emit = defineEmits(['applyFilter'])
 
 function applyPriceFilter() {
   show_invalid_amount.value = false

@@ -15,7 +15,7 @@ const router = useRouter()
 const alert_message = useAlertMessage()
 const user = useUser()
 
-const submitForm = async () => {
+async function submitForm() {
   const { valid } = await form.value.validate()
   if (!valid) return
 
@@ -35,9 +35,22 @@ const submitForm = async () => {
 </script>
 
 <template>
-  <v-card class="pa-6 mx-auto mt-16" elevation="3" width="450">
-    <v-form :readonly="loading" @keyup.enter="submitForm()" ref="form">
-      <v-icon class="d-block mx-auto" color="primary" icon="$mdiBagChecked" size="50" />
+  <v-card 
+    class="pa-6 mx-auto mt-16" 
+    elevation="3" 
+    width="450"
+  >
+    <v-form
+      :readonly="loading"
+      @keyup.enter="submitForm()"
+      ref="form"
+    >
+      <v-icon 
+        class="d-block mx-auto"
+        color="primary"
+        icon="$mdiBagChecked"
+        size="50"
+      />
 
       <v-card-title class="text-primary text-center text-h5 mb-5 mt-1">LOGIN</v-card-title>
 
@@ -76,16 +89,49 @@ const submitForm = async () => {
         </template>
       </v-text-field>
 
-      <v-btn :loading="loading" @click="submitForm()" color="secondary" block>Log In</v-btn>
+      <v-btn
+        :loading="loading"
+        @click="submitForm()"
+        color="secondary"
+        block
+      >
+        Log In
+      </v-btn>
     </v-form>
 
     <v-row class="text-center mt-3">
-      <v-col cols="12" sm="6" md="6" lg="6">
-        <v-btn :disabled="loading" @click="alert_message.showNotAvailable()" class="text-body-2" variant="text" block>Sign Up</v-btn>
+      <v-col
+        cols="12"
+        sm="6"
+        md="6"
+        lg="6"
+      >
+        <v-btn
+          :disabled="loading"
+          @click="alert_message.showNotAvailable()"
+          class="text-body-2"
+          variant="text"
+          block
+        >
+          Sign Up
+        </v-btn>
       </v-col>
 
-      <v-col cols="12" sm="6" md="6" lg="6">
-        <v-btn :disabled="loading" @click="alert_message.showNotAvailable()" class="text-body-2" variant="text" block>Forgot Password</v-btn>
+      <v-col
+        cols="12"
+        sm="6"
+        md="6"
+        lg="6"
+      >
+        <v-btn
+          :disabled="loading"
+          @click="alert_message.showNotAvailable()"
+          class="text-body-2"
+          variant="text"
+          block
+        >
+          Forgot Password
+        </v-btn>
       </v-col>
     </v-row>
   </v-card>

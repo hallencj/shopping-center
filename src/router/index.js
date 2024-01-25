@@ -1,8 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import ShoppingCartView from '@/views/ShoppingCartView.vue'
-import CheckOutView from '@/views/CheckOutView.vue'
-import CheckOutSuccessView from '@/views/CheckOutSuccessView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -20,7 +18,7 @@ const router = createRouter({
     {
       path: '/check-out',
       name: 'check-out',
-      component: CheckOutView,
+      component: () => import('@/views/CheckOutView.vue'),
       beforeEnter: (to, from, next) => {
         const shopping_cart = localStorage.getItem('shopping-cart') ? JSON.parse(localStorage.getItem('shopping-cart')) : []
         const credentials = localStorage.getItem('user-credentials') ? JSON.parse(localStorage.getItem('user-credentials')) : {}
@@ -35,7 +33,7 @@ const router = createRouter({
     {
       path: '/check-out/success',
       name: 'check-out-success',
-      component: CheckOutSuccessView,
+      component: () => import('@/views/CheckOutSuccessView.vue'),
       beforeEnter: (to, from, next) => {
         const shopping_cart = localStorage.getItem('shopping-cart') ? JSON.parse(localStorage.getItem('shopping-cart')) : []
         const credentials = localStorage.getItem('user-credentials') ? JSON.parse(localStorage.getItem('user-credentials')) : {}
@@ -50,7 +48,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/LoginView.vue'),
+      component: () => import('@/views/LoginView.vue'),
       beforeEnter: (to, from, next) => {
         const credentials = localStorage.getItem('user-credentials') ? JSON.parse(localStorage.getItem('user-credentials')) : {}
 

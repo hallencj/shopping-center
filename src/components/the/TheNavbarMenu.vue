@@ -1,7 +1,9 @@
 <script setup>
 import { useAlertMessage } from '@/stores/alert.js'
+import { useUser } from '@/stores/user.js'
 
 const alert_message = useAlertMessage()
+const user = useUser()
 
 function logout() {
   alert_message.showAlert({
@@ -10,11 +12,11 @@ function logout() {
     title: 'This will logout your account',
     body: 'Do you want to continue?'
   })
-    .then(response => {
-      if (response) {
-        user.toggleLoggedIn()
-      }
-    })
+  .then(response => {
+    if (response) {
+      user.toggleLoggedIn()
+    }
+  })
 }
 </script>
 

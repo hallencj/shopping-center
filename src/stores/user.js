@@ -19,6 +19,7 @@ export const useUser = defineStore('user', () => {
       localStorage.setItem('user-credentials', JSON.stringify(credentials.value))
     } else {
       localStorage.removeItem('user-credentials')
+      localStorage.removeItem('shopping-cart')
       window.location.reload()
     }
   }
